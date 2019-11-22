@@ -1,4 +1,5 @@
 import User from "../models/user";
+import Student from "../models/student"
 
 module.exports = {
   index: async (req, res, next) => {
@@ -33,5 +34,13 @@ module.exports = {
   getUsersSolicituds: async (res, req, next) => {
     const { userId } = req.params;
     const solis = await User.findById(userId).populate("usr_solicitudes");
+  },
+  newUserStudent: async (res, req, next) => {
+    const {userId} = req.params
+    const newStudent = new Student(req.body)
+    const user = await User.findById({userId})
+    user.usr_students.push(newStudent)
+    await user.save()
+    res.status(200).json(newStudent)
   }
 };
