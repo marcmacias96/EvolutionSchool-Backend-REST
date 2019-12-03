@@ -21,21 +21,6 @@ module.exports = {
     const upUser = await User.findByIdAndUpdate(userId, newUser);
     res.status(200).json(upUser);
   },
-  getUserStudents: async (req, res, next) => {
-    const { userId } = req.params;
-    const user = await User.findById(userId).populate("usr_students");
-
-    res.status(200).json(user.usr_students);
-  },
-  getUserRoles: async (req, res, next) => {
-    const { userId } = req.params;
-    const roles = await User.findById(userId).populate("usr_roles");
-    res.status(200).json(roles);
-  },
-  getUsersSolicituds: async (req, res, next) => {
-    const { userId } = req.params;
-    const solis = await User.findById(userId).populate("usr_solicitudes");
-  },
   newUserStudent: async (req, res, next) => {
     const { userId } = req.params;
     const newStudent = new Student(req.body);
@@ -44,5 +29,29 @@ module.exports = {
     await user.save();
     await newStudent.save();
     res.status(200).json(newStudent);
+  },
+  getUserStudents: async (req, res, next) => {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate("usr_students");
+
+    res.status(200).json(user.usr_students);
+  },
+  setUserRole: async (req, res, next) => {
+    const { userdId } = req.params;
+    const user = await User.findById(userdId);
+    const _id = req.body._id;
+    user.usr_roles.push(_id);
+    await user.save();
+    const upUser = await User.findById(userdId).populate(usr_roles);
+    res.status(200).json(upUser);
+  },
+  getUserRoles: async (req, res, next) => {
+    const { userId } = req.params;
+    const user = await User.findById(userId).populate("usr_roles");
+    res.status(200).json(user.usr_roles);
+  },
+  getUsersSolicituds: async (req, res, next) => {
+    const { userId } = req.params;
+    const solis = await User.findById(userId).populate("usr_solicitudes");
   }
 };

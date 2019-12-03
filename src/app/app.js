@@ -16,12 +16,23 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //Routes
-import { users, students, countrys, cities } from "../routes/index";
+import {
+  users,
+  students,
+  countrys,
+  cities,
+  roles,
+  requests,
+  drivers
+} from "../routes/index";
 
 app.use("/users", users);
 app.use("/students", students);
 app.use("/countrys", countrys);
 app.use("/cities", cities);
+app.use("/roles", roles);
+app.use("/requests", requests);
+app.use("/drivers", drivers);
 
 // catch 404 Errors and Forward them to Error Handler
 app.use((req, res, next) => {

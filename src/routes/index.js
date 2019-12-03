@@ -1,11 +1,17 @@
-import users from "../routes/users";
-import students from "../routes/students";
-import countrys from "../routes/countrys";
-import cities from "../routes/cities";
+import users from "./users";
+import students from "./students";
+import countrys from "./countrys";
+import cities from "./cities";
+import roles from "./roles";
+import requests from "./requests";
+import drivers from "./drivers";
 
 module.exports = {
   users,
   students,
   countrys,
-  cities
+  cities,
+  roles,
+  requests,
+  drivers
 };
