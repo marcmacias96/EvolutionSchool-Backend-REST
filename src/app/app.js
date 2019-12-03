@@ -23,7 +23,9 @@ import {
   cities,
   roles,
   requests,
-  drivers
+  drivers,
+  routes,
+  schools
 } from "../routes/index";
 
 app.use("/users", users);
@@ -33,6 +35,8 @@ app.use("/cities", cities);
 app.use("/roles", roles);
 app.use("/requests", requests);
 app.use("/drivers", drivers);
+app.use("/routes", routes);
+app.use("/schools", schools);
 
 // catch 404 Errors and Forward them to Error Handler
 app.use((req, res, next) => {

@@ -5,7 +5,8 @@ import cities from "./cities";
 import roles from "./roles";
 import requests from "./requests";
 import drivers from "./drivers";
-
+import routes from "./routes";
+import schools from "./schools";
 module.exports = {
   users,
   students,
@@ -13,5 +14,7 @@ module.exports = {
   cities,
   roles,
   requests,
-  drivers
+  drivers,
+  routes,
+  schools
 };

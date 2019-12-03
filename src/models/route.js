@@ -5,10 +5,6 @@ const RouteSchema = new Schema({
     type: String,
     required: true
   },
-  rou_school: {
-    type: Schema.Types.ObjectId,
-    required: false
-  },
   rou_driver: {
     type: Schema.Types.ObjectId,
     required: false

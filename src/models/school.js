@@ -14,7 +14,7 @@ const SchoolSchema = new Schema({
     required: false
   },
   sch_routes: {
-    type: Schema.Types.ObjectId,
+    type: [Schema.Types.ObjectId],
     required: false
   }
 });
