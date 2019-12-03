@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
 const StudentSchema = new Schema({
   stu_names: {
@@ -17,22 +17,28 @@ const StudentSchema = new Schema({
     type: Number,
     required: true
   },
-  stu_absences: {
-    type: [Schema.Types.ObjectId],
-    required: false
-  },
+  stu_absences: [
+    {
+      type: Schema.Types.ObjectId,
+      required: false,
+      ref: "absence"
+    }
+  ],
   stu_location: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: false,
+    ref: "location"
   },
   stu_school: {
     type: Schema.Types.ObjectId,
-    required: false
+    required: false,
+    ref: "school"
   },
   stu_route: {
     type: Schema.Types.ObjectId,
-    required: false
+    required: false,
+    ref: "route"
   }
-})
-const Student = model('students', StudentSchema)
-export default Student
+});
+const Student = model("student", StudentSchema);
+export default Student;

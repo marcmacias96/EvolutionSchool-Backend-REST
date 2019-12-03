@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
 const RouteSchema = new Schema({
   rou_zone: {
@@ -17,6 +17,6 @@ const RouteSchema = new Schema({
     type: [Schema.Types.ObjectId],
     required: false
   }
-})
-const Route = model('routes', RouteSchema)
-export default Route
+});
+const Route = model("route", RouteSchema);
+export default Route;

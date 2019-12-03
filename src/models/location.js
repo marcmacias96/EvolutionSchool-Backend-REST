@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
 const LocationSchema = new Schema({
   loc_street1: {
@@ -17,6 +17,6 @@ const LocationSchema = new Schema({
     type: String,
     required: true
   }
-})
-const Location = model('locations', LocationSchema)
-export default Location
+});
+const Location = model("location", LocationSchema);
+export default Location;

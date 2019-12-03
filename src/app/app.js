@@ -9,16 +9,19 @@ connect();
 const app = express();
 
 //setting
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 5000);
 
 //middelware
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //Routes
-import users from "../routes/users";
+import { users, students, countrys, cities } from "../routes/index";
 
 app.use("/users", users);
+app.use("/students", students);
+app.use("/countrys", countrys);
+app.use("/cities", cities);
 
 // catch 404 Errors and Forward them to Error Handler
 app.use((req, res, next) => {
@@ -30,7 +33,7 @@ app.use((req, res, next) => {
 // Error Handler Function
 app.use((err, req, res, next) => {
   const error = app.get("env") === "development" ? err : {};
-  const status = error.status || 500;
+  const status = error.status || 300;
 
   // response to client
   res.status(status).json({

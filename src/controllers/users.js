@@ -1,5 +1,4 @@
-import User from "../models/user";
-import Student from "../models/student"
+import { User, Student } from "../models/index";
 
 module.exports = {
   index: async (req, res, next) => {
@@ -7,8 +6,9 @@ module.exports = {
     res.status(200).json(users);
   },
   newUser: async (req, res, next) => {
-    const User = await new User(req.body).save();
-    res.status(200).json(User);
+    const user = new User(req.body);
+    const newUser = await user.save();
+    res.status(200).json(newUser);
   },
   getUser: async (req, res, next) => {
     const { userId } = req.params;
@@ -21,26 +21,28 @@ module.exports = {
     const upUser = await User.findByIdAndUpdate(userId, newUser);
     res.status(200).json(upUser);
   },
-  getUserStudents: async (res, req, next) => {
+  getUserStudents: async (req, res, next) => {
     const { userId } = req.params;
-    const students = await User.findById(userId).populate("usr_students");
-    res.status(200).json(students);
+    const user = await User.findById(userId).populate("usr_students");
+
+    res.status(200).json(user.usr_students);
   },
-  getUserRoles: async (res, req, next) => {
+  getUserRoles: async (req, res, next) => {
     const { userId } = req.params;
     const roles = await User.findById(userId).populate("usr_roles");
     res.status(200).json(roles);
   },
-  getUsersSolicituds: async (res, req, next) => {
+  getUsersSolicituds: async (req, res, next) => {
     const { userId } = req.params;
     const solis = await User.findById(userId).populate("usr_solicitudes");
   },
-  newUserStudent: async (res, req, next) => {
-    const {userId} = req.params
-    const newStudent = new Student(req.body)
-    const user = await User.findById({userId})
-    user.usr_students.push(newStudent)
-    await user.save()
-    res.status(200).json(newStudent)
+  newUserStudent: async (req, res, next) => {
+    const { userId } = req.params;
+    const newStudent = new Student(req.body);
+    const user = await User.findById(userId);
+    user.usr_students.push(newStudent);
+    await user.save();
+    await newStudent.save();
+    res.status(200).json(newStudent);
   }
 };

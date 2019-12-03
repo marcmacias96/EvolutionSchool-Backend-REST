@@ -33,17 +33,19 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  usr_students: {
+  usr_students: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "student"
+    }
+  ],
+  usr_roles: {
     type: [Schema.Types.ObjectId],
     required: false
   },
-  usr_roles: {
-    type: [Schema.Types.ObjectId],
-    required: true
-  },
   usr_city: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: false
   },
   usr_solicitudes: {
     type: [Schema.Types.ObjectId],
@@ -51,5 +53,5 @@ const UserSchema = new Schema({
   }
 });
 
-const User = model("users", UserSchema);
+const User = model("user", UserSchema);
 export default User;

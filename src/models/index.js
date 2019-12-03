@@ -1,20 +1,17 @@
-
-import Car from './Auto'
-
-import absence from './absence'
-import car from './car'
-import city from './city'
-import country from './country'
-import driver from './driver'
-import location from './location'
-import relief from './relief'
-import request from './request'
-import role from './role'
-import route from './route'
-import school from './school'
-import solicitude from './solicitude'
-import student from './student'
-import user from './user'
+import absence from "./absence";
+import car from "./car";
+import city from "./city";
+import country from "./country";
+import driver from "./driver";
+import location from "./location";
+import relief from "./relief";
+import request from "./request";
+import role from "./role";
+import route from "./route";
+import school from "./school";
+import solicitude from "./solicitude";
+import student from "./student";
+import user from "./user";
 
 module.exports = {
   Absence: absence,
@@ -30,6 +27,5 @@ module.exports = {
   School: school,
   Solicitude: solicitude,
   Student: student,
-  User: user,
-  CAR: Car
-}
+  User: user
+};

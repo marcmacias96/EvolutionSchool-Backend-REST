@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
 const SchoolSchema = new Schema({
   sch_name: {
@@ -17,6 +17,6 @@ const SchoolSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: false
   }
-})
-const School = model('schools', SchoolSchema)
-export default School
+});
+const School = model("school", SchoolSchema);
+export default School;

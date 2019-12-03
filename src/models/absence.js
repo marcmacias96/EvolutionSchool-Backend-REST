@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from "mongoose";
 
 const AbsenceSchema = new Schema({
   abs_date: {
@@ -9,6 +9,6 @@ const AbsenceSchema = new Schema({
     type: String,
     required: true
   }
-})
-const Absence = model('absences', AbsenceSchema)
-export default Absence
+});
+const Absence = model("absence", AbsenceSchema);
+export default Absence;
