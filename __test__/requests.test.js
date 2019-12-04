@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../app/app";
+import app from "../src/app/app";
 
 describe("Test de funcionamiento de peticiones Get API-REST", () => {
   test("Creando un nuevo usuario", async () => {
