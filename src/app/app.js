@@ -60,8 +60,4 @@ app.use((err, req, res, next) => {
   // show in console
   console.error(err);
 });
-
-// Start The server
-app.listen(app.get("port"), () => {
-  console.log(`server on port ${app.get("port")}`);
-});
+module.exports = app;
